@@ -1,81 +1,98 @@
 # Import necessary libraries
 import time
+from datetime import timedelta
+
 from pynput import keyboard, mouse
 import threading
+import pygetwindow as gw
+from flask import Flask
+from database import get_window_time, update_or_insert_window_time
+
+app = Flask(__name__)
 
 
 class ScreenTimeTracker:
 
     def __init__(self):
         # Initialize variables
-        self.start_time = None
+        self.start_time = time.time()
         self.total_time = 0
         self.idle_time = 5 * 60  # 5 minutes
-        # Start the key listener
-        with (keyboard.Listener(on_press=self.on_activity, on_release=self.on_activity) as key_listener,
-              mouse.Listener(on_move=self.on_activity, on_click=self.on_activity) as mouse_listener):
-            # Start the idle checker in a separate thread
-            idle_checker = threading.Thread(target=self.check_idle)
-            idle_checker.start()
+        self.activity_detected = False  # Flag to track any activity
+        self.last_window_title = None
 
-            key_listener.join()
-            mouse_listener.join()
+        # Start the idle checker in a separate thread
+        idle_checker = threading.Thread(target=self.check_idle)
+        idle_checker.start()
 
     # Define activity event
-    def on_activity(self, *args):
-        if self.start_time is None:
-            self.start_time = time.time()
-            print("Screen time tracking started.")
-
-        else:
-            end_time = time.time()
-            elapsed_time = end_time - self.start_time
-            self.total_time += elapsed_time
-            print(f"Recorded {elapsed_time} of screen time.")
-            self.start_time = None
-
-    # # Define the key press event
-    # def on_press(self, key):
-    #     if self.start_time is None:
-    #         self.start_time = time.time()  # Start the timer on the first key press
-    #         print("Screen time tracking started.")
-    #
-    # # Define the key release event
-    # def on_release(self, key):
-    #     if self.start_time is not None:
-    #         end_time = time.time()  # End the timer when the key is released
-    #         elapsed_time = end_time - self.start_time  # Calculate the elapsed time
-    #         self.total_time += elapsed_time  # Add the elapsed time to the total time
-    #         print(f"Recorded {elapsed_time} of screen time")
-    #         hours, rem = divmod(elapsed_time, 3600)
-    #         minutes, seconds = divmod(rem, 60)
-    #         print(f"Recorded {int(hours)}:{int(minutes)}:{int(seconds)} of screen time.")
-    #         self.start_time = None  # Reset the start
+    def on_activity(self):
+        self.activity_detected = True
+        self.start_time = time.time()
 
     # Define the idle check function
     def check_idle(self):
+        current_window = None
+        window_start_time = None
+
         while True:
-            print("check_idle function started")
-            if self.start_time is not None and time.time() - self.start_time > self.idle_time:
-                elapsed_time = time.time() - self.start_time  # Calculate the elapsed time
-                self.total_time += elapsed_time  # Add the idle time
-                print(f"Recorded {elapsed_time} seconds of idle time.")
-                self.start_time = None  # Reset the start time
-            time.sleep(60)  # Check for idle time every minute
-            print(f"Total screen time so far is {self.total_time} seconds.")
-            try:
-                print("About to write to file.")
-                with open('screen_time.txt', 'a') as f:
-                    hours, rem = divmod(self.total_time, 3600)
+            # Check for inactivity
+            if not self.activity_detected:
+                idle_time_increment = time.time() - self.start_time  # Calculate the idle time increment
+                self.total_time += idle_time_increment  # Add the idle time increment to the total time
+                print(f"Recorded {idle_time_increment} seconds of idle time.")
+
+            # Reset the start time regardless of activity
+            self.start_time = time.time()
+
+            # Reset activity flag
+            self.activity_detected = False
+
+            # Capture active window title
+            active_window = gw.getActiveWindow()
+            window_title = active_window.title if active_window else ""
+            print(f"Active window title: {window_title}")
+
+            # If the active window changes
+            if window_title != current_window:
+                # Calculate time spent on previous window and add to total_time
+                if window_start_time is not None:
+                    window_elapsed_time = time.time() - window_start_time
+                    self.total_time += window_elapsed_time
+                    hours, rem = divmod(window_elapsed_time, 3600)
                     minutes, seconds = divmod(rem, 60)
-                    f.write(f"Total screen time so far is {int(hours)}:{int(minutes)}:{int(seconds)}.\n")
-                print("Finished writing to file.")
+                    print(f"Time spent on '{current_window}': {int(hours)}:{int(minutes)}:{int(seconds)}")
+                    update_or_insert_window_time(current_window, window_elapsed_time)
 
-            except IOError as e:
-                print(f"An error occurred while writing to file: {e}")
+                # Update current window and start time
+                current_window = window_title
+                window_start_time = time.time()
 
-            except Exception as e:
-                print(f"An unexpected error occurred: {e}")
+            # Sleep for idle check interval
+            time.sleep(1)  # Check for idle time every second
+
+    def start_tracking(self):
+        # Start listeners for keyboard and mouse events
+        with keyboard.Listener(on_press=lambda _: self.on_activity(),
+                               on_release=lambda _: self.on_activity()) as k_listener, \
+                mouse.Listener(on_move=lambda x, y: self.on_activity(),
+                               on_click=lambda x, y, button, pressed: self.on_activity()) as m_listener:
+            k_listener.join()
+            m_listener.join()
+
+    def get_last_window_title(self):
+        return self.last_window_title
+
+    def set_last_window_title(self, title):
+        self.last_window_title = title
 
 
-tracker = ScreenTimeTracker()
+@app.route('/')
+def index():
+    return "TrackSense"
+
+
+if __name__ == "__main__":
+    tracker = ScreenTimeTracker()
+    tracker.start_tracking()
+    app.run(debug=True)

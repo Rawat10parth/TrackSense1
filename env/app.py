@@ -1,16 +1,18 @@
-import signup
-from flask import Flask, render_template, request
-import mysql.connector
+import bcrypt
+from flask import Flask, render_template, request, redirect, url_for
+import pyodbc
 
 app = Flask(__name__)
 
-# Adjust database connection parameters according to your MySQL setup
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="user"
-)
+cnxn = pyodbc.connect('Driver={ODBC Driver 18 for SQL Server};'
+                      'Server=tcp:minortrack.database.windows.net,1433;'
+                      'Database=tracksense;'
+                      'Tables=users;'
+                      'Uid=parth;'
+                      'Pwd=Rawat@10;'
+                      'Encrypt=yes;'
+                      'TrustServerCertificate=no;'
+                      'Connection Timeout=30;')
 
 
 @app.route('/')
@@ -22,21 +24,30 @@ def signup():
 def signup_submit():
     if request.method == 'POST':
         try:
-            first_name = request.form.get('first-name')  # Adjust form field names
-            last_name = request.form.get('last-name')  # Adjust form field names
-            email = request.form.get('email')  # Adjust form field names
-            password = request.form.get('password')  # Adjust form field names
+            first_name = request.form.get('first-name')
+            last_name = request.form.get('last-name')
+            email = request.form.get('email')
+            password = request.form.get('password')
 
-            cursor = db.cursor()
-            # Adjust table name and column names in the SQL query
-            cursor.execute("INSERT INTO users (first_name, last_name, email, password) VALUES (%s, %s, %s, %s)",
-                           (first_name, last_name, email, password))
-            db.commit()  # Commit the transaction
+            # Hash the password before storing it in the database
+            hashed_password = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+
+            cursor = cnxn.cursor()
+            cursor.execute("INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)",
+                           (first_name, last_name, email, hashed_password))
+            cnxn.commit()
             cursor.close()
 
-            return "Signup successful"
+            return redirect(url_for('signup_success'))
+        except pyodbc.Error as err:
+            return f"An error occurred: {err}", 500
         except Exception as e:
             return f"An error occurred: {e}", 500
+
+
+@app.route('/signup-success')
+def signup_success():
+    return "Signup successful"
 
 
 if __name__ == '__main__':

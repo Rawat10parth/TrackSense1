@@ -19,7 +19,7 @@ class ScreenTimeTracker:
         self.total_time = 0
         self.idle_time = 5 * 60  # 5 minutes
         self.activity_detected = False  # Flag to track any activity
-        self.last_window_title = None
+        self.last_application_start_time = None
         self.last_application = None
 
         # Start the idle checker in a separate thread
@@ -52,26 +52,32 @@ class ScreenTimeTracker:
             # Capture active window title
             active_window = gw.getActiveWindow()
             window_title = active_window.title if active_window else ""
-            application = window_title.split(" - ")[-1] if active_window else ""
-            print(f"Active window title: {window_title}")
+
+            application_name = self.extract_application_name(window_title)
 
             # If the active window changes
-            if window_title != current_application:
+            if application_name != self.last_application:
                 # Calculate time spent on previous window and add to total_time
-                if window_start_time is not None:
-                    application_elapsed_time = time.time() - window_start_time
+                if self.last_application_start_time is not None:
+                    application_elapsed_time = time.time() - self.last_application_start_time
                     self.total_time += application_elapsed_time
                     hours, rem = divmod(application_elapsed_time, 3600)
                     minutes, seconds = divmod(rem, 60)
-                    print(f"Time spent on '{current_application}': {int(hours)}:{int(minutes)}:{int(seconds)}")
-                    update_or_insert_window_time(current_application, application_elapsed_time)
+                    print(f"Time spent on '{self.last_application}': {int(hours)}:{int(minutes)}:{int(seconds)}")
+                    update_or_insert_window_time(self.last_application, application_elapsed_time)
 
                 # Update current window and start time
-                current_application = application
-                window_start_time = time.time()
+                self.last_application = application_name
+                self.last_application_start_time = time.time()
 
             # Sleep for idle check interval
             time.sleep(1)  # Check for idle time every second
+
+    def extract_application_name(self, window_title):
+        if "|" in window_title:
+            return window_title.split("|")[1].strip()
+        else:
+            return window_title
 
     def start_tracking(self):
         # Start listeners for keyboard and mouse events
@@ -83,10 +89,10 @@ class ScreenTimeTracker:
             m_listener.join()
 
     def get_last_window_title(self):
-        return self.last_window_title
+        return self.last_application
 
-    def set_last_window_title(self, title):
-        self.last_window_title = title
+    def set_last_window_title(self, application_name):
+        self.last_application = application_name
 
 
 @app.route('/')

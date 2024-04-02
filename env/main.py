@@ -76,8 +76,10 @@ class ScreenTimeTracker:
     def extract_application_name(self, window_title):
         if "|" in window_title:
             return window_title.split("|")[1].strip()
+        elif "-" in window_title:
+            return window_title.split("-")[1].strip()
         else:
-            return window_title
+            return window_title.strip()
 
     def start_tracking(self):
         # Start listeners for keyboard and mouse events

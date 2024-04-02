@@ -16,8 +16,28 @@ cnxn = pyodbc.connect('Driver={ODBC Driver 18 for SQL Server};'
 
 
 @app.route('/')
-def signup():
-    return render_template('signup.html')
+def index():
+    return render_template('login.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        # Process the login form submission
+        email = request.form.get('email')
+        password = request.form.get('password')
+        # Add your authentication logic here
+
+        # For demonstration purposes, redirect to a success page if login is successful
+        return redirect(url_for('login_success'))
+    else:
+        # Render the login form
+        return render_template('login.html')
+
+
+@app.route('/login-success')
+def login_success():
+    return "Login successful"
 
 
 @app.route('/signup', methods=['POST'])

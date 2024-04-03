@@ -1,0 +1,98 @@
+.desktop1-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+  .desktop1-desktop1 {
+    width: 100%;
+    height: 1024px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 7, 99, 1) 0%, rgba(153, 4, 59, 1) 82%, rgba(170, 4, 66, 1) 100%);
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+  .desktop1-frame1 {
+    top: 0px;
+    left: 0px;
+    width: 1540px;
+    height: 241px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(20, 52, 71, 1);
+  }
+  .desktop1-tracksenselogo1 {
+    top: 20px;
+    left: 37px;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+  }
+  .desktop1-text {
+    top: 43px;
+    left: 337px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 128px;
+    font-style: Bold;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .desktop1-text2 {
+    top: 307px;
+    left: 57px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 94px;
+    font-style: italic;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 300;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .desktop1-text4 {
+    top: 307px;
+    left: 480px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 94px;
+    font-style: italic;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 300;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .desktop1-text6 {
+    top: 872px;
+    left: 32px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 32px;
+    font-style: italic;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  

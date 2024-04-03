@@ -97,11 +97,6 @@ class ScreenTimeTracker:
         self.last_application = application_name
 
 
-@app.route('/')
-def index():
-    return "TrackSense"
-
-
 if __name__ == "__main__":
     tracker = ScreenTimeTracker()
     tracker.start_tracking()

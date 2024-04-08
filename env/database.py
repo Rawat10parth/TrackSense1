@@ -1,13 +1,20 @@
 import pyodbc
+import mysql.connector
 
-cnxn = pyodbc.connect('Driver={ODBC Driver 18 for SQL Server};'
-                      'Server=tcp:minortrack.database.windows.net,1433;'
-                      'Database=tracksense;'
-                      'Uid=parth;'
-                      'Pwd=Rawat@10;'
-                      'Encrypt=yes;'
-                      'TrustServerCertificate=no;'
-                      'Connection Timeout=30;')
+# cnxn = pyodbc.connect('Driver={ODBC Driver 18 for SQL Server};'
+#                       'Server=tcp:minortrack.database.windows.net,1433;'
+#                       'Database=tracksense;'
+#                       'Uid=parth;'
+#                       'Pwd=Rawat@10;'
+#                       'Encrypt=yes;'
+#                       'TrustServerCertificate=no;'
+#                       'Connection Timeout=30;')
+cnxn = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="tracksense",
+            )
 
 
 def get_window_time(window_title):

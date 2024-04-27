@@ -189,7 +189,9 @@
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
+  cursor: pointer;
 }
+
 .desktop1-tracksenselogo1 {
   top: 301px;
   left: 220px;

@@ -1,0 +1,381 @@
+.desktop2-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.desktop2-desktop2 {
+  width: 100%;
+  height: 768px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.desktop2-alarm {
+  top: 0px;
+  left: 0px;
+  width: 1366px;
+  height: 742.5258178710938px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.desktop2-frame2 {
+  top: 0px;
+  left: 0px;
+  width: 1366px;
+  height: 742.5258178710938px;
+  display: flex;
+  position: absolute;
+  align-items: flex-end;
+  flex-shrink: 0;
+  justify-content: flex-end;
+}
+.desktop2-rectangle5 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 906px;
+  position: absolute;
+}
+.desktop2-rectangle8 {
+  top: 232px;
+  left: 163px;
+  width: 922px;
+  height: 180px;
+  position: absolute;
+  border-radius: 14px;
+}
+.desktop2-rectangle17 {
+  top: 292px;
+  left: 650px;
+  width: 345px;
+  height: 82px;
+  position: absolute;
+  border-radius: 40px;
+}
+.desktop2-rectangle48 {
+  top: 308px;
+  left: 677px;
+  width: 291px;
+  height: 51px;
+  display: flex;
+  position: absolute;
+  border-radius: 10px;
+  background-size: cover;
+  background-image: url('https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/115728f6-d483-4ae8-bfcf-3b6d9cf610ac/8fab254b-97d0-4c78-ba47-f221d432e58f?org_if_sml=1553&force_format=original');
+  background-position: center;
+}
+.desktop2-rectangle15 {
+  top: 429px;
+  left: 173px;
+  width: 676px;
+  height: 148px;
+  position: absolute;
+  border-radius: 14px;
+}
+.desktop2-container1 {
+  top: 554.5250244140625px;
+  left: 877px;
+  width: 239px;
+  height: 79px;
+  display: flex;
+  position: absolute;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.desktop2-rectangle14 {
+  top: 0px;
+  left: 0px;
+  width: 211px;
+  height: 79px;
+  display: flex;
+  position: absolute;
+  border-radius: 14px;
+  background-size: cover;
+  background-image: url("public/external/rectangle141025-ql5-200h.png");
+  background-position: center;
+}
+.desktop2-text {
+  top: 16.4749755859375px;
+  left: 72px;
+  color: rgba(18, 17, 17, 0.7900000214576721);
+  width: 167px;
+  height: auto;
+  position: absolute;
+  font-size: 28px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Rubik;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  cursor: pointer;
+}
+.desktop2-rectangle12 {
+  top: 293px;
+  left: 221px;
+  width: 107px;
+  height: 82px;
+  position: absolute;
+  border-radius: 40px;
+}
+.desktop2-rectangle16 {
+  top: 293px;
+  left: 388px;
+  width: 106px;
+  height: 82px;
+  position: absolute;
+  border-radius: 40px;
+}
+.desktop2-text02 {
+  top: 453px;
+  left: 213px;
+  color: rgba(0, 0, 0, 1);
+  width: 282px;
+  height: auto;
+  position: absolute;
+  font-size: 28px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Rubik;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.desktop2-text04 {
+  top: 350px;
+  left: 328px;
+  color: rgba(0, 0, 0, 1);
+  width: 91px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.desktop2-text06 {
+  top: 350px;
+  left: 494px;
+  color: rgba(0, 0, 0, 1);
+  width: 92px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.desktop2-rectangle81 {
+  top: 489px;
+  left: 235px;
+  width: 519px;
+  height: 50px;
+  position: absolute;
+  border-radius: 30.5px;
+}
+.desktop2-yaxisgrid {
+  top: 649px;
+  left: 728px;
+  width: 354px;
+  height: 1px;
+  position: absolute;
+}
+.desktop2-text08 {
+  top: 245px;
+  left: 683px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 28px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Rubik;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.desktop2-text10 {
+  top: 246px;
+  left: 243px;
+  color: rgba(0, 0, 0, 1);
+  width: 275px;
+  height: auto;
+  position: absolute;
+  font-size: 28px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Rubik;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.desktop2-rectangle6 {
+  top: 158.5061492919922px;
+  left: 48.716102600097656px;
+  width: 80px;
+  height: 424px;
+  position: absolute;
+}
+.desktop2-house1 {
+  top: 211.34152221679688px;
+  left: 65.27949523925781px;
+  width: 49px;
+  height: 27px;
+  position: absolute;
+}
+.desktop2-alarm1 {
+  top: 276.4422607421875px;
+  left: 39.94711685180664px;
+  width: 98px;
+  height: 56px;
+  position: absolute;
+}
+.desktop2-bar1 {
+  top: 359.46929931640625px;
+  left: 65.27949523925781px;
+  width: 42px;
+  height: 37px;
+  position: absolute;
+}
+.desktop2-pomodoro1 {
+  top: 439.66583251953125px;
+  left: 59.43375015258789px;
+  width: 55px;
+  height: 42px;
+  position: absolute;
+}
+.desktop2-exit16291881 {
+  top: 537.7886962890625px;
+  left: 75.02281951904297px;
+  width: 32px;
+  height: 24px;
+  position: absolute;
+}
+.desktop2-text12 {
+  top: 41.513519287109375px;
+  left: 62.356746673583984px;
+  color: rgba(0, 0, 0, 0.6299999952316284);
+  width: 292px;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Rubik;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.desktop2-text14 {
+  top: 158.33840942382812px;
+  left: 198.76173400878906px;
+  color: rgba(0, 0, 0, 1);
+  width: 516px;
+  height: auto;
+  position: absolute;
+  font-size: 40px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Rubik;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.desktop2-rectangle7 {
+  top: 74.53562927246094px;
+  left: 985.0399169921875px;
+  width: 223px;
+  height: 46px;
+  position: absolute;
+  border-radius: 30.5px;
+}
+.desktop2-text16 {
+  top: 90.57493591308594px;
+  left: 1036.6790771484375px;
+  color: rgba(0, 0, 0, 1);
+  width: 57px;
+  height: auto;
+  opacity: 0.60;
+  position: absolute;
+  font-size: 16px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  font-style: Regular;
+  text-align: left;
+  font-family: Itim;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.desktop2-search {
+  top: 87.74446868896484px;
+  left: 1009.39794921875px;
+  width: 18px;
+  height: 24px;
+  opacity: 0.80;
+  position: absolute;
+}
+.desktop2-test-account {
+  top: 50.004913330078125px;
+  left: 1219.8516845703125px;
+  width: 77px;
+  height: 98px;
+  position: absolute;
+}
+.desktop2-rectangle481 {
+  top: 308px;
+  left: 242px;
+  width: 65px;
+  height: 51px;
+  display: flex;
+  position: absolute;
+  border-radius: 10px;
+  background-size: cover;
+  background-image: url('https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/115728f6-d483-4ae8-bfcf-3b6d9cf610ac/ce3fd12d-fcfa-4582-bb5a-490c2e8fcf25?org_if_sml=1438&force_format=original');
+  background-position: center;
+}
+.desktop2-rectangle49 {
+  top: 308px;
+  left: 408px;
+  width: 65px;
+  height: 51px;
+  display: flex;
+  position: absolute;
+  border-radius: 10px;
+  background-size: cover;
+  background-image: url('https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/115728f6-d483-4ae8-bfcf-3b6d9cf610ac/30f9cc0c-b84c-4e0f-b6c6-9c26d2f446db?org_if_sml=1438&force_format=original');
+  background-position: center;
+}
+.desktop2-rectangle50 {
+  top: 500px;
+  left: 266px;
+  width: 450px;
+  height: 28px;
+  display: flex;
+  position: absolute;
+  background-size: cover;
+  background-image: url('https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/115728f6-d483-4ae8-bfcf-3b6d9cf610ac/1fa90976-4a1e-4dc6-b7ba-3df8081eb408?org_if_sml=1233&force_format=original');
+  background-position: center;
+}

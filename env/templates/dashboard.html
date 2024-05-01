@@ -1,84 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>TrackSense</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="utf-8" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <style data-tag="reset-style-sheet">
-    html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
-  </style>
-  <style data-tag="default-style-sheet">
-    html {
-      font-family: Inter;
-      font-size: 16px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #cfe7f8;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            align-items: center;
+            display: block;
+            justify-content: center;
 
-    body {
-      font-weight: 400;
-      font-style:normal;
-      text-decoration: none;
-      text-transform: none;
-      letter-spacing: normal;
-      line-height: 1.15;
-      color: var(--dl-color-gray-black);
-      background-color: var(--dl-color-gray-white);
+        }
 
-    }
-  </style>
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/animate.css@4.1.1/animate.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font"
-  />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font"
-  />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font"
-  />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
-  />
+        .track-note {
+            height: 50px;
+            width: 700px;
+            background-color: white;
+            margin: 20px 20px 20px 380px;
+            border-radius: 20px;
+            box-shadow: 5px 10px #b5b3b3;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            /* Smooth transition */
+        }
+
+        .track-note.highlight {
+            background-color: #ffff99;
+            /* Yellow highlight */
+        }
+
+        button {
+            background-color: #359cf0;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .logout {
+            background-color: #359cf0;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .title {
+            height: 50px;
+            width: 700px;
+            background-color: rgb(59, 140, 240);
+            margin: 20px 20px 20px 420px;
+            border-radius: 10px;
+            box-shadow: 5px 10px #b5b3b3;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .search-input {
+            height: 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            position: absolute;
+            top: 10px;
+            right: 80px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+    </style>
+    <title>Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
 
-  <link rel="stylesheet" href="static\style.css" />
-  <div>
-    <link href="static/index.css" rel="stylesheet" />
-
-    <div class="desktop1-container">
-      <div class="desktop1-desktop1">
-        <div class="desktop1-frame1">
-          <img
-            src="static/tracksense logo.png"
-            alt="tracksenselogo125"
-            class="desktop1-tracksenselogo1"
-          />
-          <span class="desktop1-text"><span>DASHBOARD</span></span>
-        </div>
-        <span class="desktop1-text2"><span>Welcome,</span></span>
-        <span class="desktop1-text4"><p>{{user[0]}}</p></span>
-        <span class="desktop1-text6">
-          <span>Can’t see anything? We are still working...</span>
-        </span>
-      </div>
+    <h1>Welcome to Your Dashboard!</h1>
+    <div class="title">
+        <p> The Total Time Spent on each Application:</p>
     </div>
-  </div>
+    <div>
+        <ul id="app-usage-list">
+            <!-- Application usage data will be filled here by JavaScript -->
+        </ul>
+    </div>
+    <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+
+    <!-- Button to clear logs and delete all app_usage table data -->
+    <button id="clear-logs-btn">Clear Logs</button>
+
+    <!-- Button to view statistics -->
+    <a href="{{ url_for('statistics') }}"><button>View Statistics</button></a>
+
+    <!-- Button to set alarm -->
+    <a href="{{ url_for('set_limit') }}"><button>Set Alarm</button></a>
+
+    <input type="text" class="search-input" placeholder="Search">
+
+    <script>
+        function fetchAppUsage() {
+            $.ajax({
+                url: "/api/app-usage",
+                type: "GET",
+                success: function (data) {
+                    var list = $("#app-usage-list");
+                    list.empty(); // Clear the list before appending new data
+                    $.each(data, function (app, duration) {
+                        var listItem = $("<li>", {
+                            "class": "track-note",
+                            "text": app + ": " + duration + " seconds"
+                        });
+                        list.append(listItem);
+
+                        // Filter based on search input
+                        var searchInput = $(".search-input").val().toLowerCase();
+                        if (searchInput !== "" && app.toLowerCase().includes(searchInput)) {
+                            listItem.addClass("highlight");
+                        }
+                    });
+                }
+            });
+        }
+
+        // Function to handle clearing logs
+        $("#clear-logs-btn").click(function () {
+            $.ajax({
+                url: "/delete-app-usage-data",
+                type: "POST",
+                success: function (response) {
+                    alert(response); // Show success message
+                    fetchAppUsage(); // Fetch updated app usage data
+                }
+            });
+        });
+
+        // Fetch app usage data every 5 seconds
+        setInterval(fetchAppUsage, 5000);
+
+        // Also fetch immediately on page load
+        fetchAppUsage();
+
+        // Event listener for search input
+        $(".search-input").on("input", function () {
+            var searchInput = $(this).val().toLowerCase();
+            $("#app-usage-list").children().each(function () {
+                var appText = $(this).text().toLowerCase();
+                if (searchInput !== "" && appText.includes(searchInput)) {
+                    $(this).addClass("highlight");
+                } else {
+                    $(this).removeClass("highlight");
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

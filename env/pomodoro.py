@@ -5,9 +5,9 @@ import pygame
 pygame.mixer.init()
 
 # Define work and break durations in seconds
-WORK_DURATION = 1 * 60  # 25 minutes
-SHORT_BREAK_DURATION = 5 * 60  # 5 minutes
-LONG_BREAK_DURATION = 2 * 60  # 15 minutes
+WORK_DURATION = 25 * 60  # 25 minutes
+SHORT_BREAK_DURATION = 10 * 60  # 5 minutes
+LONG_BREAK_DURATION = 20 * 60  # 15 minutes
 
 # Define the sound file to play at the end of each period
 # Make sure you have a sound file in the same directory as the script or provide the path to the sound file

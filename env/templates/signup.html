@@ -1,163 +1,203 @@
 <!DOCTYPE html>
 <html lang="english">
-  <head>
+
+<head>
     <title>TrackSense</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
 
     <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+        html {
+            line-height: 1.15;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+        }
+
+        p,
+        li,
+        ul,
+        pre,
+        div,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        figure,
+        blockquote,
+        figcaption {
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            background-color: transparent;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        button,
+        select {
+            text-transform: none;
+        }
+
+        button,
+        [type="button"],
+        [type="reset"],
+        [type="submit"] {
+            -webkit-appearance: button;
+        }
+
+        button::-moz-focus-inner,
+        [type="button"]::-moz-focus-inner,
+        [type="reset"]::-moz-focus-inner,
+        [type="submit"]::-moz-focus-inner {
+            border-style: none;
+            padding: 0;
+        }
+
+        button:-moz-focus,
+        [type="button"]:-moz-focus,
+        [type="reset"]:-moz-focus,
+        [type="submit"]:-moz-focus {
+            outline: 1px dotted ButtonText;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        input {
+            padding: 2px 4px;
+        }
+
+        img {
+            display: block;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
     </style>
     <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
+        html {
+            font-family: Inter;
+            font-size: 16px;
+        }
 
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
+        body {
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.15;
+            color: var(--dl-color-gray-black);
+            background-color: var(--dl-color-gray-white);
 
-      }
+        }
     </style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/animate.css@4.1.1/animate.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Suez+One:wght@400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        data-tag="font" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        data-tag="font" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        data-tag="font" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        data-tag="font" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Suez+One:wght@400&amp;display=swap"
+        data-tag="font" />
+    <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  </head>
-  <body>
+</head>
+
+<body>
     <link rel="stylesheet" href="static/style2.css" />
     <div>
-      <link href="static/index2.css" rel="stylesheet" />
+        <link href="static/index2.css" rel="stylesheet" />
 
-      <div class="desktop1-container">
-        <div class="desktop1-desktop1">
-          <form action="/signup" method="post">
-          <div class="desktop1-panel-right">
-            <a
-              href= "/login"
-              name="login"
-              target="_blank"
-              rel="noreferrer noopener"
-              class="desktop1-login button"
-            >
-              <span class="desktop1-text"><span>Login</span></span>
-            </a>
-            <button type="submit" name="signup" class="desktop1-sign-up button">
-              <span class="desktop1-text02">Sign Up</span>
-            </button>
-            <input
-              type="password"
-              placeholder="Password"
-              id="password"
-              name="password"
-              required="true"
-              class="desktop1-password form-control"
-            />
-            <label for="password" class="desktop1-text03">
-              <span>Password</span>
-            </label>
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              required="true"
-              
-              id="email"
-              class="desktop1-email form-control"
-            />
-            <label for="email" class="desktop1-text05">
-              <span>Email</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Last Name"
-              id="last_name"
-              name="last_name"
-              required="true"
-              class="desktop1-lastname form-control"
-            />
-            <label for="last_name" class="desktop1-text07">
-              <span>Last Name</span>
-            </label>
-            <input
-              type="text"
-              placeholder="First Name"
-              id="first_name"
-              name="first_name"
-              required="true"
-              class="form-control"
-            />
-            <label for="first_name" class="desktop1-text09">
-              <span>First Name</span>
-            </label>
-            <span class="desktop1-text11"><span>Create Account</span></span>
-          </div>
-        </form>
-          <img
-            src="static/tracksense logo.png"
-            alt="tracksenselogo127"
-            class="desktop1-tracksenselogo1"
-          />
-          <span class="desktop1-text13">
-            <span>Your first</span>
-            <br />
-            <span>step</span>
-            <br />
-            <span>towards</span>
-            <br />
-            <span>your</span>
-            <br />
-            <span>Digital</span>
-            <br />
-            <span>Wellbieng</span>
-          </span>
+        <div class="desktop1-container">
+            <div class="desktop1-desktop1">
+                <form action="/signup" method="post">
+                    <div class="desktop1-panel-right">
+                        <a href="/login" name="login" rel="noreferrer noopener" class="desktop1-login button">
+                            <span class="desktop1-text"><span>Login</span></span>
+                        </a>
+                        <button type="submit" name="signup" class="desktop1-sign-up button">
+                            <span class="desktop1-text02">Sign Up</span>
+                        </button>
+                        <input type="password" placeholder="Password" id="password" name="password" required="true"
+                            class="desktop1-password form-control" />
+                        <label for="password" class="desktop1-text03">
+                            <span>Password</span>
+                        </label>
+                        <input type="email" placeholder="Email" name="email" required="true" id="email"
+                            class="desktop1-email form-control" />
+                        <label for="email" class="desktop1-text05">
+                            <span>Email</span>
+                        </label>
+                        <input type="text" placeholder="Last Name" id="last_name" name="last_name" required="true"
+                            class="desktop1-lastname form-control" />
+                        <label for="last_name" class="desktop1-text07">
+                            <span>Last Name</span>
+                        </label>
+                        <input type="text" placeholder="First Name" id="first_name" name="first_name" required="true"
+                            class="form-control" />
+                        <label for="first_name" class="desktop1-text09">
+                            <span>First Name</span>
+                        </label>
+                        <span class="desktop1-text11"><span>Create Account</span></span>
+                    </div>
+                </form>
+                <img src="static/tracksense logo.png" alt="tracksenselogo127" class="desktop1-tracksenselogo1" />
+                <span class="desktop1-text13">
+                    <span>Your first</span>
+                    <br />
+                    <span>step</span>
+                    <br />
+                    <span>towards</span>
+                    <br />
+                    <span>your</span>
+                    <br />
+                    <span>Digital</span>
+                    <br />
+                    <span>Wellbieng</span>
+                </span>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>

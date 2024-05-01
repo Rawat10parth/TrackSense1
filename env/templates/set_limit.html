@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Time Limit</title>
+    <style>
+        body {
+            background-color: #fff;
+            color: #333;
+            margin-left: 100px;
+            padding: 20px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            width: 600px;
+            background-color: #f0d4d4;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+
+        .image-container {
+            margin-left: 20px;
+        }
+
+        h1 {
+            color: #1d1d1d;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-left: 20px;
+            text-align: left;
+
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #212121;
+
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #4285F4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3367d6;
+
+        }
+
+        .clock-image {
+            width: 600px;
+            height: 600px;
+            margin-left: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Set Time Limit</h1>
+        <!-- set_limit.html -->
+        <form action="{{ url_for('set_limit') }}" method="post">
+        <label for="app_name">Application Name:</label>
+        <input type="text" id="app_name" name="app_name" required><br>
+        <label for="time_limit">Time Limit (minutes):</label>
+        <input type="number" id="time_limit" name="time_limit" required><br>
+        <input type="submit" value="Set Limit">
+    </form>
+    </div>
+    <div class="image-container">
+        <img class="clock-image" src="../static/clock_image.jpg" alt="Clock Image">
+
+    </div>
+    </div>
+
+
+</body>
+
+</html>

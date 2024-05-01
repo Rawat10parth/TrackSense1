@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Usage Statistics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 1000px;
+            padding: 20px;
+        }
+
+        .heading {
+            height: 50px;
+            width: 700px;
+            background-color: rgb(59, 140, 240);
+            margin: 20px 20px 20px 100px;
+            border-radius: 10px;
+            box-shadow: 2px 5px #b5b3b3;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        canvas {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">Application Usage Statistics</h1>
+        <canvas id="usage-chart"></canvas>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/api/app-usage",
+                type: "GET",
+                success: function (data) {
+                    var apps = [];
+                    var durations = [];
+
+
+                    $.each(data, function (app, duration) {
+                        apps.push(app);
+                        durations.push(duration);
+                    });
+
+
+                    var ctx = document.getElementById('usage-chart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: apps,
+                            datasets: [{
+                                label: 'Time Spent (seconds)',
+                                data: durations,
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

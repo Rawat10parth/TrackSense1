@@ -112,7 +112,7 @@ def track_active_window():
 
 
 def log_application_usage(application_name, duration):
-    # Isert email again and again add some logic
+    # Insert email again and again add some logic
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute('INSERT INTO app_usage (app_name, duration) VALUES (%s, %s)', (application_name, duration))

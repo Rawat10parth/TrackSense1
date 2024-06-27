@@ -99,7 +99,6 @@ python-dateutil==2.8.2
 python-dotenv==1.0.1
 python-slugify==8.0.4
 pytz==2023.3.post1
-pywin32;
 PyYAML==6.0.1
 qrcode==7.4.2
 regex==2023.12.25

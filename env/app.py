@@ -1,15 +1,11 @@
-from flask import Flask, request, render_template, redirect, url_for, session
-import mysql.connector
+import threading
 import time
-from pygetwindow import getActiveWindow
-import threading
-from flask import jsonify
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from plyer import notification
-import threading
+import mysql.connector
 import pygame
+from flask import Flask, request, render_template, redirect, url_for, session
+from flask import jsonify
+from plyer import notification
+from pygetwindow import getActiveWindow
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -35,11 +31,11 @@ def home():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        emaill = request.form['email']
+        email = request.form['email']
         password = request.form['password']
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s', (emaill, password))
+        cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s', (email, password))
         user = cursor.fetchone()
         cursor.close()
         conn.close()
@@ -178,7 +174,7 @@ def set_limit():
             cursor.close()
             conn.close()
             print("Record inserted in DB for set Alarm", app_name, 'and', time_limit)
-            check_time_limits(app_name)  # This might still be problematic, see below
+            check_time_limits(app_name)
             return redirect(url_for('dashboard'))
         return render_template('set_limit.html', user_email=session['user_email'])
     else:
@@ -214,6 +210,11 @@ def check_time_limits(app_name):
         time.sleep(5)  # Sleep for 5 seconds before checking again
 
 
+@app.route('/pomodoro')
+def pomodoro():
+    return render_template('pomodoro.html')
+
+
 def play_sound(file_path):
     pygame.mixer.init()
     pygame.mixer.music.load(file_path)
@@ -231,7 +232,7 @@ def trigger_notification(app_name, duration):
 
     # Play a sound
     play_sound(
-        'C:/Users/Dell/Documents/college/semester6/minor 2 reports/TrackSense/env/audio.mp3')  # Ensure this path is correct
+        'C:/Users/Dell/Documents/college/semester6/minor 2 reports/TrackSense/env/audio.mp3')
 
     print(f"Limit reached for {app_name}: {duration} seconds")
 
